@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Djudvens — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #0e1116;
+  --bg-light: #ffffff;
+  --text-dark: #f5f6f8;
+  --text-light: #111;
+  --muted-dark: #9aa0aa;
+  --muted-light: #666;
+  --border-dark: rgba(255,255,255,0.08);
+  --border-light: #e5e5e5;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(14,17,22,.9);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.light header {
+  background: rgba(255,255,255,.95);
+  border-bottom: 1px solid var(--border-light);
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+nav a {
+  margin-left: 1.6rem;
+  text-decoration: none;
+  font-size: .95rem;
+  color: var(--muted-dark);
+}
+
+body.light nav a { color: var(--muted-light); }
+
+nav a:hover { color: currentColor; }
+
+.theme-btn {
+  margin-left: 2rem;
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+  padding: .45rem .9rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+}
+
+.hero p {
+  margin-top: 1rem;
+  line-height: 1.7;
+  color: var(--muted-dark);
+}
+
+body.light .hero p { color: var(--muted-light); }
+
+/* SLIDER */
+.slider {
+  max-width: 1100px;
+  margin: 3rem auto 5rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.slides {
+  display: flex;
+  transition: transform .7s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 460px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* WORK */
+#work {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 2rem 5rem;
+}
+
+#work h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 2rem;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin-top: .6rem;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--muted-dark);
+}
+
+body.light .card h3 { color: var(--muted-light); }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius);
+}
+
+.modal span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+/* TEXT */
+section.text {
+  max-width: 800px;
+  margin: auto;
+  padding: 5rem 2rem;
+}
+
+section.text h2 {
+  font-family: "Playfair Display", serif;
+}
+
+section.text p {
+  margin-top: 1rem;
+  line-height: 1.8;
+  color: var(--muted-dark);
+}
+
+body.light section.text p { color: var(--muted-light); }
+
+/* CONTACT */
+.contact-form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: .8rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  border: 1px solid var(--border-light);
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: .7rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.light .contact-form button {
+  background: #000;
+  color: #fff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  font-size: .9rem;
+  color: var(--muted-dark);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Djudvens</h1>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-btn" onclick="toggleTheme()">Dark/Light</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Visual Designer & Illustrator</h2>
+  <p>
+    Focused on illustration, character design, and clear visual storytelling for brands and creative projects.
+  </p>
+</section>
+
+<div class="slider">
+  <div class="slides" id="slides">
+    <div class="slide"><img src="assets/Djudvensdesign_300dpi.jpg"></div>
+    <div class="slide"><img src="assets/Djudvensdesigns_72dpi.jpg"></div>
+    <div class="slide"><img src="assets/MerchDesigns_300dpi.jpg"></div>
+    
+  </div>
+</div>
+
+<section id="work">
+  <h2>Selected Work</h2>
+
+  <div class="gallery">
+    <!-- 13 CARDS -->
+    <div class="card" onclick="openModal('assets/Djudvensdesign_300dpi.jpg')"><img src="assets/Djudvensdesign_300dpi.jpg"><h3></h3></div>
+    <div class="card" onclick="openModal('assets/Djudvensdesigns_72dpi.jpg')"><img src="assets/Djudvensdesigns_72dpi.jpg"><h3></h3></div>
+    <div class="card" onclick="openModal('assets/MerchDesigns_300dpi.jpg')"><img src="assets/MerchDesigns_300dpi.jpg"><h3></h3></div>
+
+    <div class="card" onclick="openModal('assets/Merch4_72dpi.jpg')"><img src="assets/Merch4_72dpi.jpg"><h3></h3></div>
+
+    <div class="card" onclick="openModal('assets/ToussaintHW_300dpi.jpg')"><img src="assets/ToussaintHW_300dpi.jpg"><h3></h3></div>
+    <div class="card" onclick="openModal('assets/Limited Collection 2030_72dpi.jpg')"><img src="assets/Limited Collection 2030_72dpi.jpg"><h3></h3></div>
+    <div class="card" onclick="openModal('assets/Toussaintwork_72dpi.jpg')"><img src="assets/Toussaintwork_72dpi.jpg"><h3>Brand Artwork</h3></div>
+
+    <div class="card" onclick="openModal('assets/Limited Collection2_300dpi.jpg')"><img src="assets/Limited Collection2_300dpi.jpg"><h3></h3></div>
+    
+</section>
+
+<div id="modal" class="modal" onclick="closeModal(event)">
+  <span>&times;</span>
+  <img id="modal-img">
+</div>
+
+<section id="about" class="text">
+  <h2>About Me</h2>
+  <p>
+   I’m Djudvens, a visual designer and illustrator specializing in clean composition, expressive imagery, and refined visual storytelling. I aim to create work that is both visually striking and thoughtfully constructed, balancing creativity with clarity. Whether working on personal or commercial projects, I focus on delivering professional-quality visuals that communicate ideas effectively and leave a strong impression.
+  </p>
+</section>
+
+<section id="contact" class="text">
+  <h2>Contact</h2>
+  <form class="contact-form" action="https://formsubmit.co/business@djudvens.com" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send message</button>
+  </form>
+</section>
+
+<footer>
+  © <span id="year"></span> Djudvens
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+let index = 0;
+const slides = document.getElementById("slides");
+setInterval(() => {
+  index = (index + 1) % slides.children.length;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}, 5000);
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+
+function openModal(src) {
+  modal.style.display = "flex";
+  modalImg.src = src;
+}
+
+function closeModal(e) {
+  if (e.target === modal || e.target.tagName === "SPAN") {
+    modal.style.display = "none";
+    modalImg.src = "";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,255 @@
+:root {
+  --bg-dark: #0e1116;
+  --bg-light: #ffffff;
+  --text-dark: #f5f6f8;
+  --text-light: #111;
+  --muted-dark: #9aa0aa;
+  --muted-light: #666;
+  --border-dark: rgba(255,255,255,0.08);
+  --border-light: #e5e5e5;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(14,17,22,.9);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.light header {
+  background: rgba(255,255,255,.95);
+  border-bottom: 1px solid var(--border-light);
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+nav a {
+  margin-left: 1.6rem;
+  text-decoration: none;
+  font-size: .95rem;
+  color: var(--muted-dark);
+}
+
+body.light nav a {
+  color: var(--muted-light);
+}
+
+nav a:hover {
+  color: currentColor;
+}
+
+.theme-btn {
+  margin-left: 2rem;
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+  padding: .45rem .9rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+}
+
+.hero p {
+  margin-top: 1rem;
+  line-height: 1.7;
+  color: var(--muted-dark);
+}
+
+body.light .hero p {
+  color: var(--muted-light);
+}
+
+/* SLIDER */
+.slider {
+  max-width: 1100px;
+  margin: 3rem auto 5rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.slides {
+  display: flex;
+  transition: transform .7s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 460px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* WORK */
+#work {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 2rem 5rem;
+}
+
+#work h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin-top: .6rem;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--muted-dark);
+}
+
+body.light .card h3 {
+  color: var(--muted-light);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius);
+}
+
+.modal span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+/* TEXT */
+section.text {
+  max-width: 800px;
+  margin: auto;
+  padding: 5rem 2rem;
+}
+
+section.text h2 {
+  font-family: "Playfair Display", serif;
+}
+
+section.text p {
+  margin-top: 1rem;
+  line-height: 1.8;
+  color: var(--muted-dark);
+}
+
+body.light section.text p {
+  color: var(--muted-light);
+}
+
+/* CONTACT */
+.contact-form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: .8rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  border: 1px solid var(--border-light);
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: .7rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.light .contact-form button {
+  background: #000;
+  color: #fff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  font-size: .9rem;
+  color: var(--muted-dark);
+}
